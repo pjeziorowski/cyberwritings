@@ -6,7 +6,16 @@ const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE
 
 module.exports = {
   siteMetadata: {
-    siteTitleAlt: `cyberwritings`,
+    title: `Cyberwritings`,
+    siteTitle: `Cyberwritings`,
+    siteTitleAlt: `Cyberwritings`,
+    siteHeadline: `Cyberwritings - thoughts and notes about technology, programming, startups and life. `,
+    siteUrl: `https://cyberwritings.com`,
+    description: `Cyberwritings - thoughts and notes about technology, programming, startups and life. `,
+    siteDescription: `Cyberwritings - thoughts and notes about technology, programming, startups and life. `,
+    siteLanguage: `en`,
+    siteImage: `/banner.jpg`,
+    author: `Patryk Jeziorowski`,
   },
   plugins: [
     {
@@ -41,12 +50,12 @@ module.exports = {
         trackingId: process.env.GOOGLE_ANALYTICS_ID
       },
     },
-      `gatsby-plugin-sitemap`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `cyberwritings - writings about tech and life`,
-        short_name: `cyberwritings`,
+        name: `Cyberwritings - writings about tech and life`,
+        short_name: `Cyberwritings`,
         description: `Thoughts and notes about technology, programming, startups and life. `,
         start_url: `/`,
         background_color: `#fff`,
