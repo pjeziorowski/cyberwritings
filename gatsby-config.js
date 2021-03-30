@@ -14,7 +14,7 @@ module.exports = {
     description: `Cyberwritings - thoughts and notes about technology, programming, startups, and life. `,
     siteDescription: `Cyberwritings - thoughts and notes about technology, programming, startups, and life. `,
     siteLanguage: `en`,
-    siteImage: `/banner.jpg`,
+    siteImage: `TODO`, 
     author: `Patryk Jeziorowski`,
   },
   plugins: [
@@ -59,7 +59,7 @@ module.exports = {
         description: `Thoughts and notes about technology, programming, startups, and life. `,
         start_url: `/`,
         background_color: `#fff`,
-        theme_color: `#6B46C1`,
+        theme_color: `#ed64a6`,
         display: `standalone`,
         icons: [
           {
