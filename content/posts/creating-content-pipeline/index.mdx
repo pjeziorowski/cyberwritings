@@ -1,20 +1,86 @@
 ---
-title: Starting a blog with an automated content pipeline
+title: How I publish articles to all developer platforms (and my private blog) in one shot
 date: 2021-03-30
-slug: "/automated-content-pipeline"
-canonicalUrl: "https://cyberwritings.com"
-description: Publish to dev.to, hashnode, medium and your own site with one click.
-tags:
-  - Blogging
-  - Automation
+slug: "/publishing-articles"
+canonical_url: "https://cyberwritings.com/publishing-articles"
+description: How to publish to dev.to, Hashnode, Medium and your own site with a single click
+tags: [Blogging, Automation]
 ---
+
+### Where to host your blog?
 
 [Qovery](https://www.qovery.com/) CEO, Romaric has just started [his own blog on hashnode](https://www.heapstack.sh/). I become jealous, so I started thinking about blogging again. I couldn't decide where to publish my content, though:
 
-- Hashnode?
-- Dev.to?
-- My.own.site?
-- Medium?
+- [Hashnode](https://hashnode.com/)?
+- [Dev.to](https://dev.to)?
+- [My.own.site](https://cyberwritings.com)?
+- [Medium](https://medium.com)?
 
-To save me some time, I decided to publish everywhere with an automated content pipeline. My goal was to write one markdown file and have my posts
-automagically distributed everywhere. In this post, I'll show you how I achieved it - maybe you'll find it helpful on your own blogging adventure!
+### The answer > everywhere!
+
+To reach the highest number of people, I decided to publish it everywhere with automated content distribution tools. Unluckily, I couldn't find any tool that would meet my needs:
+
+- allowing me to write just once
+- have it published automagically everywhere
+
+In this post, I'll show you how I achieved what I wanted - I hope you'll find it helpful on your own blogging adventure.
+
+### Markdown
+
+My blog uses markdown to build the HTML for the articles. Markdown is quite good for it as it's very portable. All, Hashnode, Dev.to, and Medium support markdown in their APIs. This is perfect - it allows me to write a single markdown file and have it published everywhere.
+
+After the markdown file (the article) is written down, we need to use APIs. So, the tool needs to take the markdown and deliver it in the correct format to APIs of all the different platforms we target.
+
+### CLI
+
+The first version of the tool is a simple CLI app. It's relatively fast to create and validates the concept quickly - we don't need backends, UIs or any other crazy stuff from the very beginning. BTW, I named the app **Rollout** to refer to it in this post more easily, hah!
+
+### Using Rollout
+
+I won't go over the details of how the CLI is implemented (as it's not the topic of this post, it's very simple, though - you can see the code [here](https://github.com/pjeziorowski/rollout)).
+I'll jump straight into showing how to use the tool and how simple it is to have your posts published everywhere.
+
+1. **Install the tool**
+
+##### MacOS
+```bash
+brew tap pjeziorowski/rollout-cli
+brew install rollout-cli
+```
+
+##### Windows/Linux
+If you are on Linux/Windows, for now you need to build the app [from the source](https://github.com/pjeziorowski/rollout). I'll improve it soon!
+
+2. **Write the article** - this is definitely the most challenging part! Luckily for you, I wrote one that you can use for the test!
+
+```bash
+echo "---
+title: Test Rollout CLI
+canonical_url: https://google.com/test
+tags: [Blogging, Automation]
+---  
+## Hello Rollout!
+" > ./test.md
+```
+
+3. **Distribute the article**
+
+```bash
+rollout test.md
+```
+
+### Congrats! Your post is now published everywhere
+
+> Hey... Did you forget somethin? You only published to Dev.to, Hashnode and Medium. What about your (and mine!) private blog?
+
+Well, in my workflow, I publish posts to my blog by simply pushing markdown to my Github repository, so the tool doesn't have to do anything more. It's enough for me now,
+but in the future, **Rollout** could also be integrated with any headless CMS, for example. If I had a WordPress blog, I would simply use the WordPress API to push the article there. Luckily for me, all I have to do is store my posts on Github. If it's the same for you, welcome to the happy bloggers club!
+
+### It's open-sourced!
+
+As I mentioned earlier, you can see the tool's code in its [Github repository](https://github.com/pjeziorowski/rollout).
+If you like the idea or the tool works for you - please give it a star and leave a feedback comment (if they are yet implemented on this site, ha) or contact me on [Twitter](https://twitter.com/pjeziorowski)/[Linkedin](https://www.linkedin.com/in/patrykjeziorowski/) directly.
+
+If I see interest in the tool, I'll put more work to make it more versatile and probably create a UI (SPA) and some backend for managing the content and configuration. Contributions and suggestions are also very welcome!
+
+## BTW - this article was published with Rollout!
